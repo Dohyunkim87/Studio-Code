@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta
+        http-equiv="x-ua-compatible"
+        content="IE=edge"
+        >
+        <meta name="author" content="Dohyun Kim">
+        <meta name="description" content="Practice Page">
+        <meta name="keywords" content="Study, HTML, Practice">
+        <title>스타일 기본</title>
+        <style>
+            div{
+                width: 800px;
+                height: 1000px;
+                padding: 20px;
+                border:2px solid rgb(231, 230, 188);
+                border-radius: 60px;
+                box-shadow:10px 10px rgb(209, 243, 158),
+                20px 20px rgb(94, 134, 35),
+                30px 30px rgb(205, 147, 85),
+                40px 40px rgb(46, 76, 2),
+                50px 50px rgb(194, 55, 5);
+                
+                
+                background-color: rgb(231, 230, 188);
+                }
+            .members{
+                text-align: center;
+                position: absolute;
+                width: 50%;
+                height: 800px;
+            }
+            input {
+                width: 100%; padding: 5px; margin: 5px 0; box-sizing: border-box;
+            }
+            
+            input[type="text"] { border: solid 2px rgba(57, 193, 47, 0.826); border-radius: 8px; }
+            input[type="password"] { border: solid 2px rgba(57, 193, 47, 0.826); border-radius: 8px; }
+            input[type="number"] { border: solid 2px rgba(57, 193, 47, 0.826); border-radius: 8px; }
+            .gender-options {
+                display: flex;
+                align-items: center;
+            }
+
+            .gender-options label {
+                margin-right: 20px;
+            }
+            select{
+                height:50px;
+                width:400px;
+                font-size:16px;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div class="members">
+            <header>
+                <h1>OZ초격차 회원가입</h1>
+            </header>
+            <main>
+            <br>
+            <form text="개인정보" action="none.com" method="post" class="private">
+                <input type="text" id="email" placeholder="이메일을 입력하세요." style="width:400px;height:50px;font-size:20px;"><br>
+                <input type="text" id="name" placeholder="이름을 입력하세요." style="width:400px;height:50px;font-size:20px;"><br>
+                <input type="password" id="pass1" placeholder="비밀번호를 입력하세요." style="width:400px;height:50px;font-size:20px;"><br>
+                <input type="password" id="pass2" placeholder="비밀번호를 다시 입력하세요." style="width:400px;height:50px;font-size:20px;"><br>
+                <input type="number" id="phone1" placeholder="010" style="width:80px;height:50px;font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" id="phone2" placeholder="1234" style="width:110px;height:50px;font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" id="phone3" placeholder="5678" style="width:110px;height:50px;font-size:20px;"><br><br>
+                <span style="float:right;width:66%;">000000 <input type="button" style="width:100px;height:30px" value="인증번호 전송"></span>
+                <span style="float:right;width:62%;">3:00 <input type="text" style="width:100px;height:30px" value="인증완료" readonly/></span>
+            </form>
+            <br><br><br><br><br>
+            <form>
+                <select name="area" id="area">
+                  <option value="지역미선택" selected disabled>지역을 선택하세요.</option>
+                  <option value="서울">서울특별시</option>
+                  <option value="강원">강원도</option>
+                  <option value="경기">경기도</option>
+                  <option value="경남">경상남도</option>
+                  <option value="경북">경상북도</option>
+                  <option value="전남">전라남도</option>
+                  <option value="전북">전라북도</option>
+                  <option value="충남">충청남도</option>
+                  <option value="충북">충청북도</option>
+                  <option value="제주">제주도</option>
+                  <option value="그외">이외</option>
+                  <option value="해외">해외</option>
+                </select><br><br>
+                <input type="radio" name="sex" value="0" id="male">
+                <label for="male">남성</label>
+                <input type="radio" name="sex" value="1" id="female">
+                <label for="female">여성</label><br><br>
+                <input type="button" value="입력값 확인" onclick="showValues()" placeholder="가입하기" style="width:400px;height:50px;font-size:20px;background-color:white;text-align:center;"><br>
+              </form>              
+        </div>
+        
+        <script>
+            function showValues() {
+                // 여기서 입력된 값 가져오기
+                const email = document.getElementById('email').value;
+                const name = document.getElementById('name').value;
+                const pass1 = document.getElementById('pass1').value;
+                const pass2 = document.getElementById('pass2').value;
+                const number1 = document.getElementById('phone1').value;
+                const number2 = document.getElementById('phone2').value;
+                const number3 = document.getElementById('phone3').value;
+
+                const area = document.getElementById('area').value; // 지역 값 가져오기
+
+                const gender = document.querySelector('input[name="sex"]:checked'); // 선택된 성별 값 가져오기
+                let selectedGender = '';
+                if (gender) {
+                    selectedGender = gender.value === 'male' ? '남성' : '여성';
+                }
+                // 이하 필요한 모든 값들을 가져오세요.
+                const formattedNumber = `${number1}-${number2}-${number3}`;
+                // 콘솔에 출력하기
+                console.log("이메일:", email);
+                console.log("이름:", name);
+                console.log("비밀번호:", pass1);
+                console.log("비밀번호:", pass2);
+                console.log("번호:", formattedNumber);
+                console.log("지역:", area);
+                console.log("성별:", selectedGender);
+
+                const userInfo = {
+                    email: email,
+                    name: name,
+                    password1: pass1,
+                    password2: pass2,
+                    phoneNumber: `${number1}-${number2}-${number3}`,
+                    area: area,
+                    gender: selectedGender
+                }
+                // 이하 가져온 값들을 console.log로 출력하세요.
+                localStorage.setItem('userInfo', JSON.stringify(userInfo));
+                console.log('사용자 정보가 로컬 저장소에 저장되었습니다:', userInfo);
+            }
+        </script>
+
+    </body>
+</html>

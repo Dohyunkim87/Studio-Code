@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Dohyun Kim">
+        <meta name="description" content="Practice Page">
+        <meta name="keywords" content="Study, HTML, Practice">
+        <title>장미반 수학 성적표</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>수학 성적</h1>
+        <button onclick="toggleStudents()">75점 넘는 사람만 보기</button>
+        <button onclick="sortAscending()" id="sortAsc" style="display: none;">오름차순</button>
+        
+        <table id="resultTable">
+            <caption>수학 성적표</caption>
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>점수</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody">
+                <tr><td>오즈</td><td>75</td></tr>
+                <tr><td>철수</td><td>80</td></tr>
+                <tr><td>영희</td><td>55</td></tr>
+                <tr><td>민수</td><td>95</td></tr>
+                <tr><td>유리</td><td>35</td></tr>
+                <tr><td>짱구</td><td>20</td></tr>
+                <tr><td>민철</td><td>78</td></tr>
+            </tbody>
+        </table>
+        <script src="4-성적표.js"></script>
+    </body>
+</html>
