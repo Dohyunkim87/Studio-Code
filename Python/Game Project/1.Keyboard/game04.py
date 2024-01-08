@@ -10,6 +10,7 @@ fps = pygame.time.Clock()  # 게임에서의 fps, 지정하지 않으면 컴퓨�
 x_pos = background.get_size()[0]//2
 y_pos = background.get_size()[1]//2
 
+# 상태변수를 좌우상하 각각을 두는 것이 좋다. 다루는 키는 4개인데, 변수는 2개라서 문제가 생긴다.
 to_x = 0
 to_y = 0
 
@@ -41,6 +42,7 @@ while play:
                 to_x = 0
             elif event.key == pygame.K_RIGHT:
                 to_x = 0
+        
     
     x_pos += to_x
     y_pos += to_y
