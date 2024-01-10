@@ -4,11 +4,11 @@ from bs4 import BeautifulSoup
 # song_num_text = "javascript:melon.link.goAlbumDetail('111352904')"
 
 def get_nums(song_num_text):
-    song_num = []
-    for num in song_num_text:
-        if num.isdigit(): # 10진수로 전환
-            song_num.append(num)
-    song_num = "".join(song_num) #결과값 확인
+    # song_num = []
+    # for num in song_num_text:
+    #     if num.isdigit():
+    #         song_num.append(num)
+    song_num = "".join([num for num in song_num_text if num.isdigit()])
     return song_num
 
 
@@ -20,10 +20,12 @@ req = requests.get(url, headers=header_user)
 html = req.text
 soup = BeautifulSoup(html, "html.parser")
 
-lst50 = soup.select(".lst50")
-lst100 = soup.select(".lst100")
+# lst50 = soup.select(".lst50")
+# lst100 = soup.select(".lst100")
 
-lst_all = lst50 + lst100
+# lst_all = soup.find_all(class_ = ["lst50", "lst100"])
+lst_all = soup.select(".lst50, .lst100")
+
 for rank, i in enumerate(lst_all, 1):
     title = i.select_one(".ellipsis.rank01 a")
     singer = i.select_one(".ellipsis.rank02 a")
