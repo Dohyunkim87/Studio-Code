@@ -10,6 +10,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 user_agent = "Mozilla/5.0"
 # 유저 에이전트를 이렇게 내보낸다
 
+from selenium.webdriver.common.keys import Keys   # 키보드 입력 같은 어떠한 동작을 할 때
+from selenium.webdriver.common.by import By       # 클래스, 아이디, css_selector을 이요할 때
+from bs4 import BeautifulSoup
+import time
+
+
 options = Options()
 options.add_experimental_option('detach', True)
 # option 설정을 넣기 위한 초기화 과정
